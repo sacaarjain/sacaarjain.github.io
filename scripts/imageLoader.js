@@ -122,9 +122,9 @@ function displayImages() {
         imageWrapper.appendChild(img);
         imageWrapper.appendChild(overlay);
 
-        const isTouchDevice = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+        const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-        if (!isTouchDevice) {
+        if (canHover) {
             // Desktop: mouseenter/mouseleave shows overlay
             imageWrapper.addEventListener('mouseenter', () => {
                 if (overlayEnabled) overlay.style.opacity = '1';
@@ -186,8 +186,8 @@ function displayImages() {
     }
 
     backButton.style.display = 'block';
-    const isTouchDevice = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-    overlayToggleBtn.style.display = isTouchDevice ? 'none' : 'flex';
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    overlayToggleBtn.style.display = canHover ? 'flex' : 'none';
     nextButton.style.display = endIndex >= currentAlbumImages.length ? 'none' : 'block';
     previousButton.style.display = startIndex === 0 ? 'none' : 'block';
 }
