@@ -60,6 +60,14 @@
     margin: 10px;
 }
 
+.title-desktop { display: none; }
+.title-mobile  { display: inline; }
+
+@media (hover: hover) {
+    .title-desktop { display: inline; }
+    .title-mobile  { display: none; }
+}
+
 #albumtitletext {
     margin: 10px;
 }
@@ -94,12 +102,14 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     transition: box-shadow 0.2s ease-in-out;
     text-align: center;
+    border-radius: 5px;
 }
 
 .album-thumbnail img {
     width: 100%; /* Ensure images occupy 100% width of the container */
     height: auto; /* Maintain aspect ratio */
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .album-thumbnail:hover {
@@ -109,31 +119,129 @@
 /* Individual Images */
 .image-wrapper {
     display: inline-block;
+    position: relative;
     width: 23.6%; /* For large screens (four per row) */
     box-sizing: border-box;
     padding: 5px;
     border: 1px solid #000;
     margin: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    transition: box-shadow 0.2s ease-in-out;/* Ensure images do not overflow the container */
+    transition: box-shadow 0.2s ease-in-out;
+    overflow: hidden;
+    cursor: zoom-in;
+    border-radius: 5px;
+    touch-action: manipulation;
 }
 
 .image-wrapper img {
     width: 100%;
     height: auto;
     display: block;
-    cursor: zoom-in;
+    border-radius: 5px;
 }
 
 .image-wrapper:hover {
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
+/* Metadata Overlay */
+.metadata-overlay {
+    position: absolute;
+    inset: 5px;
+    background: rgba(12, 12, 20, 0.42);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 5px;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 8px 32px rgba(0, 0, 0, 0.25);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    overflow-y: auto;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+/* Desktop hover — only when overlay is not disabled */
+@media (hover: hover) {
+    #images:not(.overlay-disabled) .image-wrapper:hover .metadata-overlay {
+        opacity: 1;
+    }
+}
+
+/* Mobile double-tap */
+.image-wrapper.overlay-active .metadata-overlay {
+    opacity: 1;
+}
+
+.metadata-content {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 11px;
+}
+
+.metadata-header {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 7px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.metadata-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.metadata-label {
+    color: rgba(255, 255, 255, 0.45);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.metadata-value {
+    color: white;
+    text-align: right;
+}
+
+.metadata-unavailable {
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+    font-size: 12px;
+    padding: 4px 0;
+}
+
+/* Overlay Eye Toggle Button */
+#overlayToggleBtn {
+    display: none;
+    margin: 0px 10px 10px 10px;
+    width: auto;
+    height: 30px;
+    background-color: transparent;
+    cursor: pointer;
+    box-shadow: 2px -2px 4px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.2s ease-in-out;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+}
+
 /* Button Format */
 #buttonformatBack {
     display: flex;
-    justify-content: flex;
-    margin-top: 10px; 
+    align-items: center;
+    margin-top: 10px;
     margin-right: 0.5%;
 }
 
@@ -178,10 +286,17 @@
 
 #nextButton:hover,
 #backButton:hover,
+#overlayToggleBtn:hover,
 #nextAlbumsButton:hover,
 #previousAlbumsButton:hover,
 #previousButton:hover {
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.eye-icon {
+    display: inline-flex;
+    align-items: center;
+    transition: opacity 0.15s ease;
 }
 
 /* Scroll to Top Button */

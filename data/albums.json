@@ -1,32 +1,32 @@
 [
     {
         "name": "03/27/2023-03/30/2023 ~ San Francisco",
-        "coverImagePath": "../photographs/SanFrancisco/028.JPG",
-        "imagesFolderPath": "../photographs/SanFrancisco/SanFrancisco.json"
+        "coverImagePath": "https://photos.sacaarjain.com/photographs/SanFrancisco/thumbnails/028.webp",
+        "imagesFolderPath": "https://photos.sacaarjain.com/photographs/SanFrancisco/SanFrancisco.json"
     },
     {
         "name": "09/19/2023 ~ RSM Radio Tower",
-        "coverImagePath": "../photographs/RSMRadioTower/009.JPG",
-        "imagesFolderPath": "../photographs/RSMRadioTower/RSMRadioTower.json"
+        "coverImagePath": "https://photos.sacaarjain.com/photographs/RSMRadioTower/thumbnails/009.webp",
+        "imagesFolderPath": "https://photos.sacaarjain.com/photographs/RSMRadioTower/RSMRadioTower.json"
     },
     {
         "name": "09/24/2023 ~ Miramar Air Show",
-        "coverImagePath": "../photographs/MiramarAirShow/050.JPG",
-        "imagesFolderPath": "../photographs/MiramarAirShow/MiramarAirShow.json"
+        "coverImagePath": "https://photos.sacaarjain.com/photographs/MiramarAirShow/thumbnails/050.webp",
+        "imagesFolderPath": "https://photos.sacaarjain.com/photographs/MiramarAirShow/MiramarAirShow.json"
     },
     {
         "name": "12/02/2023 ~ Hope + Flower Helipad, Los Angeles",
-        "coverImagePath": "../photographs/LAHelipad/003.JPG",
-        "imagesFolderPath": "../photographs/LAHelipad/LAHelipad.json"
+        "coverImagePath": "https://photos.sacaarjain.com/photographs/LAHelipad/thumbnails/003.webp",
+        "imagesFolderPath": "https://photos.sacaarjain.com/photographs/LAHelipad/LAHelipad.json"
     },
     {
         "name": "12/31/2023 ~ Grand Canyon West",
-        "coverImagePath": "../photographs/GrandCanyon/058.JPG",
-        "imagesFolderPath": "../photographs/GrandCanyon/GrandCanyon.json"
+        "coverImagePath": "https://photos.sacaarjain.com/photographs/GrandCanyon/thumbnails/058.webp",
+        "imagesFolderPath": "https://photos.sacaarjain.com/photographs/GrandCanyon/GrandCanyon.json"
     },
     {
         "name": "04/06/2024 ~ Venice Beach - Santa Monica",
-        "coverImagePath": "../photographs/VeniceBeach/003.JPG",
-        "imagesFolderPath": "../photographs/VeniceBeach/VeniceBeach.json"
+        "coverImagePath": "https://photos.sacaarjain.com/photographs/VeniceBeach/thumbnails/003.webp",
+        "imagesFolderPath": "https://photos.sacaarjain.com/photographs/VeniceBeach/VeniceBeach.json"
     }
 ]

@@ -26,9 +26,13 @@
             </nav>
             <hr class="separator">
             <h3 id="albumtitletext"><em>Click on any album to view the gallery of images!</em></h3>
-            <h3 id="imagetitletext"><em>Click on any image below to check it out in full resolution!</em></h3>  
+            <h3 id="imagetitletext">
+                <em class="title-desktop">Click on any image below to check it out in full resolution! Hover over it to see the Camera Details.</em>
+                <em class="title-mobile">Click on any image below to check it out in full resolution! Double tap on any image to see Camera Details.</em>
+            </h3>
             <div id="buttonformatBack">
                 <button id="backButton">Back to Albums</button>
+                <button id="overlayToggleBtn" title="Toggle camera info"></button>
             </div>
             <button id="scrollTopBtn"><img class="uparrow", src="./images/uparrow.png" alt="Top"/></button>
             <div class="albums" id="albums">

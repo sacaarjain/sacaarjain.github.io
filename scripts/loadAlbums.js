@@ -21,7 +21,7 @@ function loadAlbums() {
     backButton.style.display = 'none';
     albumTitleText.style.display = 'block';
     imageTitleText.style.display = 'none';
-    fetch('https://www.sacaarjain.com/data/albums.json')
+    fetch('./data/albums.json')
         .then(response => response.json())
         .then(data => {
             albumsData = data;
@@ -72,19 +72,19 @@ backButton.addEventListener('click', () => {
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') {
         const albumsPerPage = window.innerWidth >= 1024 ? albumsPerPageLarge : albumsPerPageMedium;
-        currentIndexAlbums += albumsPerPage;
-        if (albumsData.length < currentIndexAlbums)
+        currentIndexAlbums -= albumsPerPage;
+        if (currentIndexAlbums < 0)
         {
-            currentIndexAlbums -= albumsPerPage;
+            currentIndexAlbums = 0;
         }
         displayAlbums();
     }
     else if (event.key === 'ArrowRight') {
         const albumsPerPage = window.innerWidth >= 1024 ? albumsPerPageLarge : albumsPerPageMedium;
-        currentIndexAlbums -= albumsPerPage;
-        if (currentIndexAlbums < 0)
+        currentIndexAlbums += albumsPerPage;
+        if (currentIndexAlbums >= albumsData.length)
         {
-            currentIndexAlbums = 0;
+            currentIndexAlbums -= albumsPerPage;
         }
         displayAlbums();
     }
