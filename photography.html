@@ -59,6 +59,10 @@
             </div>
         </footer>
     </div>
+    <script>
+        const isTouchDevice = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+        document.querySelector(isTouchDevice ? '.title-mobile' : '.title-desktop').style.display = 'inline';
+    </script>
     <script src="./scripts/loadAlbums.js" type="module"></script>
     <script src="./scripts/imageLoader.js" type="module"></script>
     <script src="./scripts/moveToTop.js"></script>

@@ -61,12 +61,7 @@
 }
 
 .title-desktop { display: none; }
-.title-mobile  { display: inline; }
-
-@media (hover: hover) {
-    .title-desktop { display: inline; }
-    .title-mobile  { display: none; }
-}
+.title-mobile  { display: none; }
 
 #albumtitletext {
     margin: 10px;
@@ -160,17 +155,17 @@
     opacity: 0;
     transition: opacity 0.25s ease;
     overflow-y: auto;
+    scrollbar-width: none;
     padding: 12px 14px;
     box-sizing: border-box;
-    pointer-events: none;
+    pointer-events: auto;
 }
 
-/* Desktop hover — only when overlay is not disabled */
-@media (hover: hover) {
-    #images:not(.overlay-disabled) .image-wrapper:hover .metadata-overlay {
-        opacity: 1;
-    }
+.metadata-overlay::-webkit-scrollbar {
+    display: none;
 }
+
+/* Desktop hover handled in JS */
 
 /* Mobile double-tap */
 .image-wrapper.overlay-active .metadata-overlay {

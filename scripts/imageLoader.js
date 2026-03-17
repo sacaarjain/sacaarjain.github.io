@@ -122,8 +122,20 @@ function displayImages() {
         imageWrapper.appendChild(img);
         imageWrapper.appendChild(overlay);
 
-        // Desktop: click opens full res
+        // Desktop: mouseenter/mouseleave shows overlay
+        imageWrapper.addEventListener('mouseenter', () => {
+            if (overlayEnabled) overlay.style.opacity = '1';
+        });
+        imageWrapper.addEventListener('mouseleave', () => {
+            overlay.style.opacity = '0';
+        });
+
+        // Desktop: click opens full res (both wrapper and overlay)
         imageWrapper.addEventListener('click', () => {
+            window.open(filePath, '_blank');
+        });
+        overlay.addEventListener('click', (e) => {
+            e.stopPropagation();
             window.open(filePath, '_blank');
         });
 
@@ -170,7 +182,8 @@ function displayImages() {
     }
 
     backButton.style.display = 'block';
-    overlayToggleBtn.style.display = 'flex';
+    const isTouchDevice = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    overlayToggleBtn.style.display = isTouchDevice ? 'none' : 'flex';
     nextButton.style.display = endIndex >= currentAlbumImages.length ? 'none' : 'block';
     previousButton.style.display = startIndex === 0 ? 'none' : 'block';
 }
