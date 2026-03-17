@@ -122,22 +122,26 @@ function displayImages() {
         imageWrapper.appendChild(img);
         imageWrapper.appendChild(overlay);
 
-        // Desktop: mouseenter/mouseleave shows overlay
-        imageWrapper.addEventListener('mouseenter', () => {
-            if (overlayEnabled) overlay.style.opacity = '1';
-        });
-        imageWrapper.addEventListener('mouseleave', () => {
-            overlay.style.opacity = '0';
-        });
+        const isTouchDevice = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 
-        // Desktop: click opens full res (both wrapper and overlay)
-        imageWrapper.addEventListener('click', () => {
-            window.open(filePath, '_blank');
-        });
-        overlay.addEventListener('click', (e) => {
-            e.stopPropagation();
-            window.open(filePath, '_blank');
-        });
+        if (!isTouchDevice) {
+            // Desktop: mouseenter/mouseleave shows overlay
+            imageWrapper.addEventListener('mouseenter', () => {
+                if (overlayEnabled) overlay.style.opacity = '1';
+            });
+            imageWrapper.addEventListener('mouseleave', () => {
+                overlay.style.opacity = '0';
+            });
+
+            // Desktop: click opens full res (both wrapper and overlay)
+            imageWrapper.addEventListener('click', () => {
+                window.open(filePath, '_blank');
+            });
+            overlay.addEventListener('click', (e) => {
+                e.stopPropagation();
+                window.open(filePath, '_blank');
+            });
+        }
 
         // Mobile: single tap opens full res, double tap toggles overlay
         let touchStartY = 0;
